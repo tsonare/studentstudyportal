@@ -1,6 +1,9 @@
-from optparse import Values
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import *
+from .forms import UserRegistrationForm
+from django.contrib.auth import login
+from django.contrib import messages
+from django.contrib import auth
 
 # Create your views here.
 
@@ -29,3 +32,22 @@ def demo(request):
     }
 
     return render(request,'dashboard/demo.html',dict)
+
+def home(request):
+    return render(request,'dashboard/home.html')
+
+def register(request):
+    if request.method == 'POST':
+        user_form = UserRegistrationForm(request.POST)
+        if user_form.is_valid():
+            user_form.save()
+            username = user_form.cleaned_data.get('username')
+            messages.success(request,f"Acccount Created for {username}!!")
+            # redirect('login')
+    else:
+        user_form = UserRegistrationForm() 
+    context = {
+        'user_form':user_form
+    }
+    return render(request,"dashboard/register.html",context)
+
