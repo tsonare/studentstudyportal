@@ -1,4 +1,4 @@
-{% extends 'account/base.html' %} 
+{% extends 'dashboard/base.html' %} 
 {% load static %}
 {% load crispy_forms_tags %}
 {% block content %}
@@ -6,7 +6,7 @@
   <form method="POST">
     {% csrf_token %}
     <fieldset class="form-group">
-      <legend class="border-bottom mb-4">SignUp Here</legend>
+      <legend class="border-bottom mb-4"><h1>Signup Here</h1></legend>
       {{form|crispy}}
     </fieldset>
     <div class="form-group">
@@ -17,7 +17,7 @@
   </form>
   <div class="border-top pt-4">
     <small class="text-muted">Already have an account?
-      <a class="ml-2" href="{% url 'account_login' %}">Sign In</a>
+      <a class="ml-2" href="{% url 'account_login' %}"><font class = "text-primary" >Sign In</font></a>
     </small>
   </div>
 </div>

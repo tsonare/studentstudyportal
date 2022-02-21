@@ -133,19 +133,17 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STATIC_ROOT = os.path.join(BASE_DIR,'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFIELS_DIRS = [
-        os.path.join(BASE_DIR,'dashboard/static')
+        os.path.join(BASE_DIR, 'dashboard/static')
 ]
 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
-AUTHENTICATION_BACKENDS = [
-    
+AUTHENTICATION_BACKENDS = [   
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
-    
 ]
 
 

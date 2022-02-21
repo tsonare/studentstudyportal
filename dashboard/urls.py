@@ -3,6 +3,5 @@
 
 # urlpatterns = [
 #     path('demo',views.demo,name = 'demo'),
-#     path('home',views.home,name = 'home'),
-   
+#     path('home',views.home,name = 'home'),   
 # ]
