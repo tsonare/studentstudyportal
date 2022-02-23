@@ -1,7 +1,9 @@
-# from django.urls import path
-# from .import views
+from django.urls import path
+from .import views
 
-# urlpatterns = [
-#     path('demo',views.demo,name = 'demo'),
-#     path('home',views.home,name = 'home'),   
-# ]
+urlpatterns = [
+    path('', views.home, name = "home"),   
+    path('notes', views.notes, name = "notes"),    
+    path('delete_note/<int:pk>', views.delete_note, name = "delete_note"),    
+    path('notes_detail/<int:pk>', views.NotesDetailView.as_view(), name = "notes_detail"),
+]

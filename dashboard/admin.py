@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import *
+from .models import Note, Homework, Todo
 
 # Register your models here.
 
