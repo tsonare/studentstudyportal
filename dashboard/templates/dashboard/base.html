@@ -27,12 +27,12 @@
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
           <ul class="navbar-nav mb-2 mb-lg-0">
+            {% if user.is_authenticated %} 
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="/">Home</a>
             </li>
-            {% if user.is_authenticated %} 
             <li class="nav-item">
-              <a class="nav-link active" href="/">Hello {{user}}</a>
+              <a class="nav-link active" href="#">Hello {{user}}</a>
             </li> 
             <li class="nav-item">
               <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
@@ -44,6 +44,9 @@
               <a class="nav-link" href="{% url 'account_email' %}">Add email</a>
             </li> 
             {%else%}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'home_not_authenticated' %}">Home</a>
+            </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
             </li>
@@ -71,7 +74,11 @@
     </div>
     {% endif %}
     
-
+    {% if user.is_authenticated %}
+    {% block home%}
+    {% endblock home %}
+    {% endif %}
+    
     {% block content %}
     {% endblock content %}
 
